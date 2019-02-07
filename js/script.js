@@ -61,11 +61,22 @@ function getRandomQuote(){
     let quotesArr;
     let message;
 
-    value = Math.floor(Math.random() * Math.floor(5));
+    value = Math.floor(Math.random() * 5);
+      console.log(value);  //Verifying random number stores in the varible "value".
+
       for (let i = 0; i < quotes.length; i++) {
-          quotesArr = quotes[i];
-          console.log(quotesArr);
+          quotesArr = quotes[i];  //Storing "quote" objects from the "quotes" array.
+          console.log(quotesArr);  //Logging (to verify) "quote" objects to console.
+
+///////////////////////////////////////////
+//This is where I seem to be stumped using the random number I generated to return a random quote.
+//I have included a previous JavaScript example (student_report.js) that I was referencing to obtain specfic data from an array of objects.
+///////////////////////////////////////////
+
           if (quotesArr.quote === value) {
+            console.log(quotesArr.quote);  //Returns undefined.  Assumed a value would associate some kind of index for objects storred in quotesArr.
+                                          //This is pretty much where I stopped because I know this is wrong....
+
             message = printQuote( quotesArr )
           }
       }
@@ -85,10 +96,6 @@ function getRandomQuote(){
 
 function printQuote(quotes) {
   let randomQuote = getRandomQuote();
-    randomQuote = '<h2>Quote: ' + quotes.quote + '</h2>';
-    randomQuote += '<p>Source: ' + quotes.source + '</p>';
-    randomQuote += '<p>Citation: ' + quotes.citation + '</p>';
-    randomQuote += '<p>Year: ' + quotes.year + '</p>';
 
   var outputDiv = document.getElementById('quote-box');
   outputDiv.innerHTML = quotes;

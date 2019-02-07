@@ -44,7 +44,7 @@ let quotes = [
   {
     quote: "Keep your face always toward the sunshine—and shadows will fall behind you.",
     source: "Walt Whitman",
-    citation: "Pulications",
+    citation: "Publication",
     year: ""
   }
 ];
@@ -59,7 +59,6 @@ let quotes = [
 function getRandomQuote(ary){
   let randIndex;
   let message;
-
     randIndex = Math.floor(Math.random() * ary.length);
     return ary[randIndex];
 }
@@ -76,15 +75,22 @@ function getRandomQuote(ary){
 ***/
 
 function printQuote() {
+  let message = '';
   let randomQuote = getRandomQuote(quotes);
-  console.log(randomQuote);
-
-  randomQuote = randomQuote.quote;
-
-
-  var outputDiv = document.getElementById('quote-box');
-  outputDiv.innerHTML = randomQuote;
+    message += '<p class="quote">' + randomQuote.quote + '</p>';
+    message += '<p class="source">' + randomQuote.source;
+      if (randomQuote.citation) {
+        message += '<span class="citation">' + randomQuote.citation + '</span>';
+          if (randomQuote.year) {
+          message += '<span class="year">' + randomQuote.year + '</span></p>';
+        } else {
+          message += '</p>'
+        }
+      }
+  let outputDiv = document.getElementById('quote-box');
+  outputDiv.innerHTML = message;
 }
+
 
 
 /***

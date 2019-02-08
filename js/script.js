@@ -57,7 +57,6 @@ let quotes = [
 ***/
 
 function getRandomQuote(ary){
-  console.log(ary[2]);
   let randIndex;
     randIndex = Math.floor(Math.random() * ary.length);
     return ary[randIndex];

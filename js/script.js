@@ -16,7 +16,7 @@ FSJS project 1 - A Random Quote Generator
       quote object.
 ***/
 
-let quotes = [
+let quotes = [  //Created and array of "quote" objects and named the array "quotes".
   {
     quote: "We do not need magic to change the world, we carry all the power we need inside ourselves already: we have the power to imagine better.",
     source: "J.K. Rowling",
@@ -27,7 +27,7 @@ let quotes = [
     quote: "There is no greater threat to the critics and cynics and fearmongers than those of us who are willing to fall because we have learned how to rise.",
     source: "Brené Brown, Ph.D. LMSW",
     citation: "Publication",
-    year: 2017
+
   },
   {
     quote: "It’s the possibility of having a dream come true that makes life interesting.",
@@ -38,14 +38,14 @@ let quotes = [
   {
     quote: "It is always the simple that produces the marvelous.",
     source: "Amelia Barr",
-    citation: "Publication",
-    year: ""
+    citation: "Publication"
+
   },
   {
     quote: "Keep your face always toward the sunshine—and shadows will fall behind you.",
     source: "Walt Whitman",
-    citation: "Publication",
-    year: ""
+    citation: "Publication"
+
   }
 ];
 
@@ -98,7 +98,7 @@ function printQuote() { //Created the function `printQuote()` that called when a
           message += '</p>' //This <p> tag is necessary to properly close the concatenating HTML string if needed.
         }
       }
-  const outputDiv = document.getElementById('quote-box');  //Created a variable "outputDiv" to store the targeted DOM element. 
+  const outputDiv = document.getElementById('quote-box');  //Created a variable "outputDiv" to store the targeted DOM element.
                                                          // `getElementById` is used to target the element id with the name "quote-box" in the html document (index.html)
                                                          // This will allow JavaScript code to display the random "quote(s)" to the web page.
   outputDiv.innerHTML = message; //Storing the complete/concatenated HTML string (stored in the "message" variable)

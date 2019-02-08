@@ -56,10 +56,16 @@ let quotes = [
      `quotes` array.
 ***/
 
-function getRandomQuote(ary){
+function getRandomQuote(array){ //Created a function to take in one parameter (named `array`).  In this case parameter will take in an array.
   let randIndex;
-    randIndex = Math.floor(Math.random() * ary.length);
-    return ary[randIndex];
+    randIndex = Math.floor(Math.random() * array.length);  //Created the variable `randIndex` to store random number.
+                                                           //Using Math.random() method to multiply the number returned from the .length property of the array
+                                                           //to generate a random number and also assuring that the result will be no more than (or equal)
+                                                           //the length of the array (by using the Math.floor() method).
+    return array[randIndex];  //This final part of the function returns a random quote object (which in this case, to the getRandomQuote() function).
+                              //Now that `randIndex` has stored a generated random number, that value is used to "index" an item in the "quotes" array (of objects).
+                              //This is acheived by using array and wrapping/storing the `randIndex` variable in brackets ( [ ] ) known as "box notation"
+                              // --->  array[randIndex]
 }
 
 
@@ -73,21 +79,30 @@ function getRandomQuote(ary){
    - set the `innerHTML` of the `quote-box` div to the HTML string.
 ***/
 
-function printQuote() {
-  let message = '';
-  let randomQuote = getRandomQuote(quotes);
-    message += '<p class="quote">' + randomQuote.quote + '</p>';
+function printQuote() { //Created the function `printQuote()` that called when a click event occurs.  The button that invokes that function call has the "id" name "loadQuote"
+                        //that's located in `index.html` file (line 16).
+  let message = ''; // Created a variable named "message" which currently holds an empty string.  This varibale will be used to store/concatenate HTML and properties from the "quotes" array.
+  let randomQuote = getRandomQuote(quotes);  //Created a variable "randomQuote" which stores the random/returned "quote" object from the "quotes" array.
+                                             //Note: the random quote is stored in the variable "randomQuote" after the `getRandomQuote()` function runs passing the "quotes" array.
+    message += '<p class="quote">' + randomQuote.quote + '</p>';  //Storing/concatenating ( += ) HTML, "quote" and "source" properties from the "quotes" array into the "message" variable.
+                                                                  //Overall referencing HTML Template (provided in assignment) and dot syntax (randomQuote.quote) to access/concatenate
+                                                                  //the "quote" properties into the "message" varibale.
     message += '<p class="source">' + randomQuote.source;
-      if (randomQuote.citation) {
-        message += '<span class="citation">' + randomQuote.citation + '</span>';
-          if (randomQuote.year) {
-          message += '<span class="year">' + randomQuote.year + '</span></p>';
-        } else {
-          message += '</p>'
+      if (randomQuote.citation) {  //Using conditional statement to see "if" a citation property exists in quote object.
+        message += '<span class="citation">' + randomQuote.citation + '</span>';  // "if" a citation property exists concatenate the addtional HTML string and
+                                                                                  //the "quote" propety (randomQuote.citation) in the "message" variable.
+          if (randomQuote.year) {  //Using 2nd conditional statement to see "if" a year property exists in quote object.
+          message += '<span class="year">' + randomQuote.year + '</span></p>';// "if" a "year" property exists concatenate this addtional HTML string also and
+                                                                                   //the "quote" propety (randomQuote.year) in the "message" variable.
+        } else { //Using an "else" statement the determine if a "citation/year" property exists.  The "else" statement will only run if the 2nd conditional `if(randomQuote.year)` is "false".
+          message += '</p>' //This <p> tag is necessary to properly close the concatenating HTML string if needed.
         }
       }
-  let outputDiv = document.getElementById('quote-box');
-  outputDiv.innerHTML = message;
+  const outputDiv = document.getElementById('quote-box');  //Created a variable "outputDiv" to store the targeted DOM element. 
+                                                         // `getElementById` is used to target the element id with the name "quote-box" in the html document (index.html)
+                                                         // This will allow JavaScript code to display the random "quote(s)" to the web page.
+  outputDiv.innerHTML = message; //Storing the complete/concatenated HTML string (stored in the "message" variable)
+                                 //into "outputDiv" to display the concatenated HTML string (using the the element property `.innerHTML`).
 }
 
 

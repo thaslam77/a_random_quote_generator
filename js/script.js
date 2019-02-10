@@ -16,7 +16,7 @@ FSJS project 1 - A Random Quote Generator
       quote object.
 ***/
 
-let quotes = [  //Created and array of "quote" objects and named the array "quotes".
+let quotes = [  //Created and array of "quote" objects and named the array "quotes" (with the recommended properties).
   {
     quote: "We do not need magic to change the world, we carry all the power we need inside ourselves already: we have the power to imagine better.",
     source: "J.K. Rowling",

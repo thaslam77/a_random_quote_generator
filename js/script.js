@@ -72,11 +72,11 @@ function getRandomQuote(array){ //Created a function to take in one parameter (n
                               // --->  array[randIndex]
 }
 
-function randomBackgroundColor() {
-    let x = Math.floor(Math.random() * 256);
+function randomBackgroundColor() { //Created function `randomBackgroundColor` to generate a random background color and return the rgb color value.
+    let x = Math.floor(Math.random() * 256);  //Created variable "x", "y" and "z" to store a random value from 0 - 256.
     let y = Math.floor(Math.random() * 256);
     let z = Math.floor(Math.random() * 256);
-    let bgColor = "rgb(" + x + "," + y + "," + z + ")";
+    let bgColor = "rgb(" + x + "," + y + "," + z + ")";  //Created variable "bgColor" to string value which returns a random background color to webpage (i.e, rbg(66, 134, 244))
     //console.log(bgColor);
     return bgColor;
 }
@@ -135,7 +135,7 @@ function printQuote() { //Created the function `printQuote()` that called when a
 
 }
 
-window.setInterval(printQuote, 20000);
+window.setInterval(printQuote, 20000);  //Set a timing method `setInterval()` to call the `printQuote` function (every 20 second) to print a new quote to the page.
 
 /***
   When the "Show another quote" button is clicked, the event listener
